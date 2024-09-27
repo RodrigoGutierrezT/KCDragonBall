@@ -61,7 +61,7 @@ final class NetworkModel {
         }
     }
     
-    func getHeroes (
+    func getHeros (
         completition: @escaping (Result<[Hero], NetworkError>) -> Void
     ) {
         var components = baseComponents
