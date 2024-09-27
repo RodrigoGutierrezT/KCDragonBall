@@ -18,13 +18,17 @@
 		5B758B282CA37FE10069E57D /* NetworkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B758B272CA37FE10069E57D /* NetworkModel.swift */; };
 		5B758B2A2CA38D040069E57D /* Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B758B292CA38D040069E57D /* Hero.swift */; };
 		5B758B2C2CA463060069E57D /* Transformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B758B2B2CA463060069E57D /* Transformation.swift */; };
-		5B758B322CA614580069E57D /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B758B312CA614580069E57D /* ViewController.xib */; };
-		5B758B332CA614580069E57D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B758B302CA614580069E57D /* ViewController.swift */; };
 		5B758B362CA617A20069E57D /* HeroListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B758B352CA617A20069E57D /* HeroListViewController.xib */; };
 		5B758B372CA617A20069E57D /* HeroListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B758B342CA617A20069E57D /* HeroListViewController.swift */; };
 		5B758B3A2CA619870069E57D /* HeroTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B758B392CA619870069E57D /* HeroTableViewCell.xib */; };
 		5B758B3B2CA619870069E57D /* HeroTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B758B382CA619870069E57D /* HeroTableViewCell.swift */; };
 		5B758B3E2CA61F9A0069E57D /* UIImageView+Remote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B758B3D2CA61F9A0069E57D /* UIImageView+Remote.swift */; };
+		5B758B412CA668BF0069E57D /* HeroDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B758B402CA668BF0069E57D /* HeroDetailViewController.xib */; };
+		5B758B422CA668BF0069E57D /* HeroDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B758B3F2CA668BF0069E57D /* HeroDetailViewController.swift */; };
+		5B758B452CA76DD60069E57D /* TransformationListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B758B442CA76DD60069E57D /* TransformationListViewController.xib */; };
+		5B758B462CA76DD60069E57D /* TransformationListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B758B432CA76DD60069E57D /* TransformationListViewController.swift */; };
+		5B758B492CA76ED40069E57D /* TransformationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B758B482CA76ED40069E57D /* TransformationTableViewCell.xib */; };
+		5B758B4A2CA76ED40069E57D /* TransformationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B758B472CA76ED40069E57D /* TransformationTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,13 +64,17 @@
 		5B758B272CA37FE10069E57D /* NetworkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkModel.swift; sourceTree = "<group>"; };
 		5B758B292CA38D040069E57D /* Hero.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hero.swift; sourceTree = "<group>"; };
 		5B758B2B2CA463060069E57D /* Transformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transformation.swift; sourceTree = "<group>"; };
-		5B758B302CA614580069E57D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		5B758B312CA614580069E57D /* ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
 		5B758B342CA617A20069E57D /* HeroListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroListViewController.swift; sourceTree = "<group>"; };
 		5B758B352CA617A20069E57D /* HeroListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeroListViewController.xib; sourceTree = "<group>"; };
 		5B758B382CA619870069E57D /* HeroTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroTableViewCell.swift; sourceTree = "<group>"; };
 		5B758B392CA619870069E57D /* HeroTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeroTableViewCell.xib; sourceTree = "<group>"; };
 		5B758B3D2CA61F9A0069E57D /* UIImageView+Remote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Remote.swift"; sourceTree = "<group>"; };
+		5B758B3F2CA668BF0069E57D /* HeroDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroDetailViewController.swift; sourceTree = "<group>"; };
+		5B758B402CA668BF0069E57D /* HeroDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeroDetailViewController.xib; sourceTree = "<group>"; };
+		5B758B432CA76DD60069E57D /* TransformationListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformationListViewController.swift; sourceTree = "<group>"; };
+		5B758B442CA76DD60069E57D /* TransformationListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransformationListViewController.xib; sourceTree = "<group>"; };
+		5B758B472CA76ED40069E57D /* TransformationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformationTableViewCell.swift; sourceTree = "<group>"; };
+		5B758B482CA76ED40069E57D /* TransformationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransformationTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,10 +177,13 @@
 		5B758B2E2CA4ACE70069E57D /* View */ = {
 			isa = PBXGroup;
 			children = (
-				5B758B312CA614580069E57D /* ViewController.xib */,
+				5B758B402CA668BF0069E57D /* HeroDetailViewController.xib */,
 				5B758B352CA617A20069E57D /* HeroListViewController.xib */,
 				5B758B382CA619870069E57D /* HeroTableViewCell.swift */,
 				5B758B392CA619870069E57D /* HeroTableViewCell.xib */,
+				5B758B442CA76DD60069E57D /* TransformationListViewController.xib */,
+				5B758B472CA76ED40069E57D /* TransformationTableViewCell.swift */,
+				5B758B482CA76ED40069E57D /* TransformationTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -180,8 +191,9 @@
 		5B758B2F2CA4ACEE0069E57D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				5B758B302CA614580069E57D /* ViewController.swift */,
 				5B758B342CA617A20069E57D /* HeroListViewController.swift */,
+				5B758B432CA76DD60069E57D /* TransformationListViewController.swift */,
+				5B758B3F2CA668BF0069E57D /* HeroDetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -301,8 +313,10 @@
 				5B758B362CA617A20069E57D /* HeroListViewController.xib in Resources */,
 				5B758AFE2CA372A10069E57D /* Assets.xcassets in Resources */,
 				5B758B3A2CA619870069E57D /* HeroTableViewCell.xib in Resources */,
-				5B758B322CA614580069E57D /* ViewController.xib in Resources */,
+				5B758B412CA668BF0069E57D /* HeroDetailViewController.xib in Resources */,
+				5B758B492CA76ED40069E57D /* TransformationTableViewCell.xib in Resources */,
 				5B758B012CA372A10069E57D /* Base in Resources */,
+				5B758B452CA76DD60069E57D /* TransformationListViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,13 +343,15 @@
 			files = (
 				5B758B372CA617A20069E57D /* HeroListViewController.swift in Sources */,
 				5B758B2C2CA463060069E57D /* Transformation.swift in Sources */,
+				5B758B4A2CA76ED40069E57D /* TransformationTableViewCell.swift in Sources */,
 				5B758AF52CA372A00069E57D /* AppDelegate.swift in Sources */,
+				5B758B422CA668BF0069E57D /* HeroDetailViewController.swift in Sources */,
 				5B758AF72CA372A00069E57D /* SceneDelegate.swift in Sources */,
 				5B758B3E2CA61F9A0069E57D /* UIImageView+Remote.swift in Sources */,
 				5B758B3B2CA619870069E57D /* HeroTableViewCell.swift in Sources */,
+				5B758B462CA76DD60069E57D /* TransformationListViewController.swift in Sources */,
 				5B758B282CA37FE10069E57D /* NetworkModel.swift in Sources */,
 				5B758B262CA374A90069E57D /* APIClient.swift in Sources */,
-				5B758B332CA614580069E57D /* ViewController.swift in Sources */,
 				5B758B2A2CA38D040069E57D /* Hero.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -22,7 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Instanciamos nuestra lista de casas
         let heroListViewController = HeroListViewController()
         heroListViewController.tabBarItem = UITabBarItem(
-            title: "Hero",
+            title: "Heroes",
             image: UIImage(systemName: "house"),
             selectedImage: UIImage(systemName: "house.fill")
         )

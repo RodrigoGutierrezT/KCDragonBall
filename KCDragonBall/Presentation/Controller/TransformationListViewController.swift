@@ -1,21 +1,22 @@
 //
-//  HeroListViewController.swift
+//  TransformationListViewController.swift
 //  KCDragonBall
 //
-//  Created by Rodrigo on 26-09-24.
+//  Created by Rodrigo on 27-09-24.
 //
 
 import UIKit
 
-final class HeroListViewController: UITableViewController {
-    
+final class TransformationListViewController: UITableViewController {
+        
     // MARK: - Table View DataSource
-    typealias DataSource = UITableViewDiffableDataSource<Int, Hero>
-    typealias Snapshot = NSDiffableDataSourceSnapshot<Int, Hero>
+    typealias DataSource = UITableViewDiffableDataSource<Int, Transformation>
+    typealias Snapshot = NSDiffableDataSourceSnapshot<Int, Transformation>
     
     // MARK: - Model
     private let networkModel: NetworkModel
     private var dataSource: DataSource?
+    private var hero: Hero
     
     // MARK: - Components
     private var activityIndicator: UIActivityIndicatorView {
@@ -25,8 +26,9 @@ final class HeroListViewController: UITableViewController {
     }
     
     // MARK: - Initializers
-    init(networkModel: NetworkModel = .shared) {
+    init(networkModel: NetworkModel = .shared, hero: Hero) {
         self.networkModel = networkModel
+        self.hero = hero
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -43,25 +45,25 @@ final class HeroListViewController: UITableViewController {
         // Registramos la celda que hemos creado de forma personalizada
         tableView.register(
             // Instanciamos el archivo .xib a traves de su numbre
-            UINib(nibName: HeroTableViewCell.identifier, bundle: nil),
+            UINib(nibName: TransformationTableViewCell.identifier, bundle: nil),
             // Cada vez que TableView se encuentre este identificador
             // tiene que instanciar el .xib que le especificamos
-            forCellReuseIdentifier: HeroTableViewCell.identifier
+            forCellReuseIdentifier: TransformationTableViewCell.identifier
         )
         
         // 2. Configurar el data source
-        dataSource = DataSource(tableView: tableView) { tableView, indexPath, hero in
+        dataSource = DataSource(tableView: tableView) { tableView, indexPath, transformation in
             // Obtenemos una celda reusable y la casteamos a
             // el tipo de celda que queremos representar
             guard let cell = tableView.dequeueReusableCell(
-                withIdentifier: HeroTableViewCell.identifier,
+                withIdentifier: TransformationTableViewCell.identifier,
                 for: indexPath
-            ) as? HeroTableViewCell else {
+            ) as? TransformationTableViewCell else {
                 // Si no podemos desempaquetarla
                 // retornamos una celda en blanco
                 return UITableViewCell()
             }
-            cell.configure(with: hero)
+            cell.configure(with: transformation)
             return cell
         }
         
@@ -74,10 +76,10 @@ final class HeroListViewController: UITableViewController {
         snapshot.appendSections([0])
         
         // 5. Aplicar el snapshot al data source para añadir los objetos
-        networkModel.getHeros { [weak self] result in
+        networkModel.getTransformations(for: hero) { [weak self] result in
             switch result {
-                case let .success(heros):
-                    snapshot.appendItems(heros)
+                case let .success(transformations):
+                snapshot.appendItems(transformations.sorted { $0.name < $1.name })
                     self?.dataSource?.apply(snapshot)
                 case .failure:
                     break
@@ -87,24 +89,11 @@ final class HeroListViewController: UITableViewController {
     
 }
 
-extension HeroListViewController {
+extension TransformationListViewController {
     override func tableView(
         _ tableView: UITableView,
         heightForRowAt indexPath: IndexPath
     ) -> CGFloat {
         120
-    }
-    
-    override func tableView(
-        _ tableView: UITableView,
-        didSelectRowAt
-        indexPath: IndexPath
-    ) {
-        guard let hero = dataSource?.itemIdentifier(for: indexPath) else {
-            return
-        }
-        
-        let detailViewController = HeroDetailViewController(hero: hero)
-        navigationController?.show(detailViewController, sender: nil)
     }
 }

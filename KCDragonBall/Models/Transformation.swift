@@ -7,9 +7,15 @@
 
 import Foundation
 
-struct Transformation: Codable {
+struct Transformation: Codable, Hashable {
     let id: String
     let photo: String
     let name: String
     let description: String
+}
+
+extension Transformation {
+    var imageURL: URL? {
+        URL(string: photo)
+    }
 }
