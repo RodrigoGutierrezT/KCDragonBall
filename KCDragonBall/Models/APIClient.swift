@@ -19,16 +19,17 @@ enum NetworkError: Error, Equatable {
 }
 
 protocol APIClientProtocol {
+    var session: URLSession { get }
     
     func authenticate(
         _ request: URLRequest,
-        completition: @escaping (Result<String, NetworkError>) -> Void
+        completion: @escaping (Result<String, NetworkError>) -> Void
     )
     
-    func request<T: Decodable>(
+    func request<T: Codable>(
         _ request: URLRequest,
         using: T.Type,
-        completition: @escaping (Result<T, NetworkError>) -> Void
+        completion: @escaping (Result<T, NetworkError>) -> Void
     )
 }
 
@@ -41,13 +42,13 @@ struct APIClient: APIClientProtocol {
     
     func authenticate(
         _ request: URLRequest,
-        completition: @escaping (Result<String, NetworkError>) -> Void
+        completion: @escaping (Result<String, NetworkError>) -> Void
     ) {
         let task = session.dataTask(with: request) { data, response, error in
             let result: Result<String, NetworkError>
             
             defer {
-                completition(result)
+                completion(result)
             }
             
             guard error == nil else {
@@ -81,13 +82,13 @@ struct APIClient: APIClientProtocol {
     func request<T: Decodable>(
         _ request: URLRequest,
         using: T.Type,
-        completition: @escaping (Result<T, NetworkError>) -> Void
+        completion: @escaping (Result<T, NetworkError>) -> Void
     ) {
         let task = session.dataTask(with: request) { data, response, error in
             let result: Result<T, NetworkError>
             
             defer {
-                completition(result)
+                completion(result)
             }
             
             guard error == nil else {

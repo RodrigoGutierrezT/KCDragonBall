@@ -17,7 +17,7 @@ final class NetworkModel {
         return components
     }
     
-    private var token: String?
+    var token: String?
     private let client: APIClientProtocol
     
     init(client: APIClientProtocol = APIClient()) {
@@ -27,20 +27,20 @@ final class NetworkModel {
     func login (
         user: String,
         password: String,
-        completition: @escaping (Result<String, NetworkError>) -> Void
+        completion: @escaping (Result<String, NetworkError>) -> Void
     ) {
         var components = baseComponents
         components.path = "/api/auth/login"
         
         guard let url = components.url else {
-            completition(.failure(.malformedURL))
+            completion(.failure(.malformedURL))
             return
         }
         
         let loginString = String(format: "%@:%@", user, password)
         
         guard let loginData = loginString.data(using: .utf8) else {
-            completition(.failure(.encodingFailed))
+            completion(.failure(.encodingFailed))
             return
         }
         
@@ -57,28 +57,28 @@ final class NetworkModel {
             case .failure:
                 break
             }
-            completition(result)
+            completion(result)
         }
     }
     
     func getHeros (
-        completition: @escaping (Result<[Hero], NetworkError>) -> Void
+        completion: @escaping (Result<[Hero], NetworkError>) -> Void
     ) {
         var components = baseComponents
         components.path = "/api/heros/all"
         
         guard let url = components.url else {
-            completition(.failure(.malformedURL))
+            completion(.failure(.malformedURL))
             return
         }
         
         guard let serializedBody = try? JSONSerialization.data(withJSONObject: ["name": ""]) else {
-            completition(.failure(.serializationFailed))
+            completion(.failure(.serializationFailed))
             return
         }
         
         guard let token else {
-            completition(.failure(.notAuthorized))
+            completion(.failure(.notAuthorized))
             return
         }
         
@@ -88,29 +88,29 @@ final class NetworkModel {
         request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
         request.httpBody = serializedBody
         
-        client.request(request, using: [Hero].self, completition: completition)
+        client.request(request, using: [Hero].self, completion: completion)
         
     }
     
     func getTransformations (
         for hero: Hero,
-        completition: @escaping (Result<[Transformation], NetworkError>) -> Void
+        completion: @escaping (Result<[Transformation], NetworkError>) -> Void
     ) {
         var components = baseComponents
         components.path = "/api/heros/tranformations"
         
         guard let url = components.url else {
-            completition(.failure(.malformedURL))
+            completion(.failure(.malformedURL))
             return
         }
         
         guard let serializedBody = try? JSONSerialization.data(withJSONObject: ["id": hero.id]) else {
-            completition(.failure(.serializationFailed))
+            completion(.failure(.serializationFailed))
             return
         }
         
         guard let token else {
-            completition(.failure(.notAuthorized))
+            completion(.failure(.notAuthorized))
             return
         }
         
@@ -120,7 +120,7 @@ final class NetworkModel {
         request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
         request.httpBody = serializedBody
         
-        client.request(request, using: [Transformation].self, completition: completition)
+        client.request(request, using: [Transformation].self, completion: completion)
     }
     
 }
